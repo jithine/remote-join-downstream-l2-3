@@ -1,15 +1,19 @@
 shared:
     image: node:20
 jobs:
-    first:
+    component:
         requires: ~sd@12907:first
+        steps:
+            - echo: echo component
+    first:
+        requires: ~sd@12907:second
         steps: 
             - echo: echo first
     second:
-        requires: ~sd@12907:first
+        requires: ~sd@12907:second
         steps:
             - echo: echo second
     third:
-        requires: ~sd@12907:first
+        requires: ~sd@12907:second
         steps:
             - echo: echo third
